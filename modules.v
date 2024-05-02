@@ -34,16 +34,16 @@ output reg s;
 output reg [11:0] m;
 
 always @* begin
-    assign s = A[11];
+    s = A[11];
     
     if (s == 1) begin
-        assign m = ~A[11:0] + 1;
+        m = ~A[11:0] + 1;
     end else begin
-        assign m = A[11:0];
+        m = A[11:0];
     end
     if (A == 12'b100000000000) begin
-        assign s = 1;
-        assign m = 12'b011111111111;
+        s = 1;
+        m = 12'b011111111111;
     end
 end
 endmodule
@@ -84,7 +84,7 @@ always @* begin
         assign floating = 7'b1111111;
 
     end else if (exp_mant_bit[0] == 0) begin
-        assign floating = exp_mant_bit[7:1];
+        floating = exp_mant_bit[7:1];
     
     end else begin
         if (exp_mant_bit[4:1] == 4'b1111) begin
@@ -93,10 +93,7 @@ always @* begin
         end else begin
             new_mant = new_mant + 1;
         end
-        assign floating = {new_exp, new_mant};
+        floating = {new_exp, new_mant};
     end
 end
 endmodule
-
-
-
