@@ -1,5 +1,4 @@
-// Code your testbench here
-// or browse Examples
+
 `timescale 1ns / 1ps
 
 module tb;
@@ -38,30 +37,34 @@ module tb;
         #10;
       
       $display("Test 2: %b", {S, E, F});
+      $display("Expected output: 11111011");  
         #10
         
-        // Test 3: Smallest negative number
-        D = 12'b100000000000; // -2048 in two's complement
-        #10;
+        // Test 3: Positive number with rounding
+        D = 12'b010101011111;
+        #20;
       
       $display("Test 3: %b", {S, E, F});
+      $display("Expected output: 01111011");  
         #10
         
-        // Test 4: Positive number with rounding
-        D = 12'b010101011111;
-        #10;
-      
-      $display("Test 4: %b", {S, E, F});
-        #10
-        
-        // Test 5: Corner case of rounding
+        // Test 4: Corner case of rounding
         D = 12'b001111100000;
         #10;
       
-      $display("Test 5: %b", {S, E, F});
+      $display("Test 4: %b", {S, E, F});
+      $display("Expected output: 01111000");  
         #10
+      
+      
+      // Test 5: Smallest negative number
+        D = 12'b100000000000; // -2048 in two's complement
+        #10;
+      
+      $display("Test 5: %b", {S, E, F});
+      $display("Expected output: 11111111");  
+        #20
         
-        // Add more tests if required...
         
         // End simulation
         $finish; // Terminate simulation
